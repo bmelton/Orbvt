@@ -1,19 +1,49 @@
 <head>
-  <title>Orbvt</title>
+	<title>Orbvt</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css' />
 </head>
-<body>
-  <div id="outer"><h1>Orbvt</h1></div>
+<body class="posts index">
+	<header>
+		<h1>Orbvt</h1>
+		<span>A 'Svtble' clone in Meteor.</h1>
+		<ul>
+			<li><a href="http://twitter.com/bmelton/">@bmelton</a></li>
+			<li><a href="http://github.com/bmelton/">github.com/bmelton</a></li>
+			<li><a href="mailto:barry.melton@gmail.com">barry.melton@gmail.com</a></li>
+		</ul>
+		<span class="powered-by">Powered by <a href="http://github.com/bmelton/orbvt/">Orbvt</a></span>
+	</header>
+	<div id="container">
+		<time>April 11, 2012</time>
+		<div id="content">
+			{{>orbvt}}
+		</div>
+	</div>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-372592-23']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </body>
 <template name="orbvt">
-  <div>
-    {{#each posts}}
-      Hi?
-    {{/each}}
-</div>
+	<div>
+	{{#each posts}}
+		{{>post}}
+	{{/each}}
+	</div>
 </template>
 
 <template name="post">
-<div>
-  <span>{{title}}</span>
-</div>
+	<section id="{{_id}}">
+		<div class="post contain">
+			<h1><a href="{{_id}}">{{title}}</a></h1>
+			{{{content}}}
+		</div>
+	</section>
 </template>
