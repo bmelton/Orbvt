@@ -3,7 +3,7 @@ default_message = "This is the first post on the Orbvt (and cannot be destroyed)
 
 if (Meteor.is_client) {
   Template.orbvt.posts = function() { 
-    return Posts.find();
+    return Posts.find({}, {}, 10, 0);
   };
 
   Template.orbvt.events = {
@@ -18,7 +18,7 @@ if (Meteor.is_client) {
         var post = {title: 'Test post', author: 'bmelton', content: default_message, date: 'April 11'};
         Posts.insert(post);
       }
-    },
+    }
   }
 }
 
