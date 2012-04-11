@@ -7,6 +7,7 @@ It's a little bit on the ridiculous side at the moment, as there aren't any perm
 
 An example: 
 > post = {title: "Example Post", author: "bmelton", date: "April 11", content: "This is example content."}
+
 > Posts.insert(post);
 
 As the auth module for minimongo evolves in Meteor, this should prove to be much more useful. 
