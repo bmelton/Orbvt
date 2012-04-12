@@ -28,4 +28,6 @@ if (Meteor.is_server) {
      }
   });
   Meteor.default_server.method_handlers['/Orbvt/insert'] = function () {};
+  Meteor.default_server.method_handlers['/Orbvt/remove'] = function () {};
+  Meteor.default_server.method_handlers['/Orbvt/update'] = function () {};
 }
