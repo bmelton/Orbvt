@@ -1,5 +1,5 @@
 Posts = new Meteor.Collection("Orbvt");
-default_message = "This is the first post on the Orbvt (and cannot be destroyed), the somewhat ridiculous Svbtle clone built on the significantly less ridiculous Meteor application framework.  The admin console is your Javascript console.  To create a new message, try this: Posts.insert({title: 'Example Post', author: 'your name', date: 'Today', content: 'This is an example post!'});"
+default_message = "This is the first post on the Orbvt (and cannot be destroyed), the somewhat ridiculous Svbtle clone built on the significantly less ridiculous Meteor application framework.  The admin console is *no longer* the Javascript console.  Now I have to build one."; 
 
 if (Meteor.is_client) {
   Template.orbvt.posts = function() { 
@@ -11,10 +11,8 @@ if (Meteor.is_client) {
       event.preventDefault();
     },
     'click .destroy': function (event) {
-      console.log(event.currentTarget.id);
       Posts.remove(event.currentTarget.id);
       if(Posts.find().count() == 0) { 
-        console.log("Empty!");
         var post = {title: 'Test post', author: 'bmelton', content: default_message, date: 'April 11'};
         Posts.insert(post);
       }
@@ -29,4 +27,5 @@ if (Meteor.is_server) {
       Posts.insert(post);
      }
   });
+  Meteor.default_server.method_handlers['/Orbvt/insert'] = function () {};
 }
