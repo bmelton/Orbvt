@@ -7,15 +7,13 @@
 		<h1>Orbvt</h1>
 		<span>A 'Svtble' clone in Meteor.</h1>
 		<ul>
-			<li><a href="http://twitter.com/bmelton/">@bmelton</a></li>
-			<li><a href="http://github.com/bmelton/">github.com/bmelton</a></li>
-			<li><a href="http://sympodial.com">sympodial.com</a></li>
+			{{>properties}}
 			<li><a href="mailto:barry.melton@gmail.com">barry.melton@gmail.com</a></li>
 		</ul>
 		<span class="powered-by">Powered by <a href="http://github.com/bmelton/orbvt/">Orbvt</a></span>
 	</header>
 	<div id="container">
-		<time>April 11, 2012</time>
+		<time>{{>stamp}}</time>
 		<div id="content">
 			{{>orbvt}}
 		</div>
@@ -25,10 +23,25 @@
 	<div>
 	{{#each posts}}
 		{{>post}}
+		<a href="#" id="{{_id}}" class="destroy">Delete</a>
 	{{/each}}
 	</div>
 </template>
 
+<template name="properties">
+	{{#each properties}}
+		{{>property}}
+	{{/each}}
+</template>
+
+<template name="property">
+	<li><a href="{{href}}" target="_blank">{{name}}</a></li>
+</template>
+
+<template name="stamp">
+  {{stamp}}
+  <div style="float: right; margin-right: 40px;"><a id="new_post" href="#">New Post</a></div>
+</template>
 <template name="post">
 	<section id="{{_id}}">
 		<div class="post contain">
