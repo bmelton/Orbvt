@@ -18,13 +18,18 @@
 			{{>orbvt}}
 		</div>
 	</div>
+	<div style="display: none; background: white;" id="newpost">
+		<input type="text" name="title" id="id_title" value="title"><br />
+		<textarea name="content" id="id_content"></textarea><br />
+		<input type="submit" name="submit" id="submit" value="Submit" />
+	</div>
 </body>
+
 <template name="orbvt">
 	<div>
-	{{#each posts}}
-		{{>post}}
-		<a href="#" id="{{_id}}" class="destroy">Delete</a>
-	{{/each}}
+		{{#each posts}}
+			{{>post}}
+		{{/each}}
 	</div>
 </template>
 
@@ -40,13 +45,17 @@
 
 <template name="stamp">
   {{stamp}}
-  <div style="float: right; margin-right: 40px;"><a id="new_post" href="#">New Post</a></div>
+  <div style="float: right; margin-right: 40px;">
+	<a id="new_screen" href="/new">Screen</a> &nbsp;&nbsp;&nbsp;&nbsp;&middot; &nbsp;&nbsp;&nbsp;&nbsp;
+	<a id="new_post" href="#">New Post</a>
+  </div>
 </template>
 <template name="post">
 	<section id="{{_id}}">
 		<div class="post contain">
 			<h1><a href="{{_id}}">{{title}}</a></h1>
 			{{content}}<br />
+			<a href="#" id="{{_id}}" class="destroy">Delete</a>
 		</div>
 	</section>
 </template>
