@@ -1,5 +1,5 @@
 Posts = new Meteor.Collection("Posts");
-Properties = new Meteor.Collection("Properties");
+//Properties = new Meteor.Collection("Properties");
 
 Meteor.methods({ 
   test: function() { 
