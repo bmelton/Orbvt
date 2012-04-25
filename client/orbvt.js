@@ -3,6 +3,21 @@ Properties = new Meteor.Collection("Properties");
 nPosts = new Meteor.Collection("nPosts");
 
 if (Meteor.is_client) {
+var Router = Backbone.Router.extend({
+  routes: {
+    "/": "main",
+    "/new": "new"
+  },
+  main: function() { 
+    console.log("Yo yo");
+  },
+  new: function() { 
+    console.log("New");
+  }
+});
+Router = new Router;
+
+
   Template.stamp.stamp = function() { 
     return today();
   };
@@ -42,21 +57,6 @@ Meteor.startup(function () {
 });
 
 var self = this;
-var Router = Backbone.Router.extend({
-  routes: {
-    "": "main",
-    "new": "new"
-  },
-  main: function() { 
-    console.log("Yo yo");
-  },
-  new: function() { 
-    console.log("New");
-  }
-});
-
-Router = new Router;
-
 Eve.scope("#test", function() { 
   this.listen("li.nav", "click", function() {
     console.log("HOLLA");
